@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @version: v1.0
  */
 
-public class CASTest {
+public class CASExample {
     private AtomicInteger value = new AtomicInteger(0);
 
     public int increment() {
@@ -38,7 +38,7 @@ public class CASTest {
     }
 
     public static void main(String[] args) {
-        CASTest counter = new CASTest();
+        CASExample counter = new CASExample();
 
         // 创建多个线程并发地增加计数器的值
         Thread thread1 = new Thread(() -> {
