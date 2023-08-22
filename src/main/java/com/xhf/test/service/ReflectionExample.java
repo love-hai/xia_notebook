@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
  * @version: v1.0
  */
 
-public class ReflectionTest {
+public class ReflectionExample {
     public static void main(String[] args) {
         ImportExcelFile importExcelFile = new ImportExcelFile();
         Class<?> clazz = importExcelFile.getClass();
@@ -34,7 +34,9 @@ public class ReflectionTest {
         for (Method method : methods) {
             System.out.println("Method Name: " + method.getName());
             System.out.println("Parameter Count: " + method.getParameterCount());
-            System.out.println("Parameter Types: " + method.getParameterTypes()[0].getName());
+            for(Class<?> parameterType : method.getParameterTypes()) {
+                System.out.println("Parameter Types: " + parameterType.getName());
+            }
             System.out.println("Return Type: " + method.getReturnType());
             System.out.println();
         }
