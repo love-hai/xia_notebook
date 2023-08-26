@@ -18,15 +18,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CASExample {
     private AtomicInteger value = new AtomicInteger(0);
 
+    public CASExample(int value) {
+        this.value.set(value);
+    }
     public int increment() {
         int current;
         int next;
         while(true) {
-            if (value.get() == 100) {
+            if (value.get() <=0 ) {
                 return -1;
             }
             current = value.get();
-            next = current + 1;
+            next = current - 1;
             if (value.compareAndSet(current, next)) {
                 return next;
             }
@@ -38,7 +41,7 @@ public class CASExample {
     }
 
     public static void main(String[] args) {
-        CASExample counter = new CASExample();
+        CASExample counter = new CASExample(100);
 
         // 创建多个线程并发地增加计数器的值
         Thread thread1 = new Thread(() -> {
