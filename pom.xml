@@ -18,16 +18,14 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>2.4.5</version> <!-- 选择与Java 8兼容的版本 -->
+        </dependency>
+        <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
             <version>1.2</version>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
@@ -77,21 +75,60 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId> org.apache.cassandra</groupId>
-            <artifactId>cassandra-all</artifactId>
-            <version>0.8.1</version>
-
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
-
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.28</version>
+        </dependency>
+        <dependency>
+            <groupId>com.liferay</groupId>
+            <artifactId>org.springframework.beans</artifactId>
+            <version>5.2.24.LIFERAY-PATCHED-1</version>
+        </dependency>
+        <dependency>
+            <groupId>ga.rugal</groupId>
+            <artifactId>feign-client-generator</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.bitgrip.archetypes</groupId>
+            <artifactId>spring-boot-service</artifactId>
+            <version>0.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>com-google-gson</artifactId>
+            <version>RELEASE113</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tosan.client.http</groupId>
+            <artifactId>tosan-httpclient-spring-boot-core</artifactId>
+            <version>2.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tosan.client.http</groupId>
+            <artifactId>tosan-httpclient-spring-boot-starter</artifactId>
+            <version>2.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tosan.client.http</groupId>
+            <artifactId>tosan-httpclient-spring-boot-sample</artifactId>
+            <version>2.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tosan.client.http</groupId>
+            <artifactId>tosan-httpclient-spring-boot-resttemplate-starter</artifactId>
+            <version>2.0.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

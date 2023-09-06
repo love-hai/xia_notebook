@@ -1,6 +1,9 @@
 package com.xhf.test.service;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @projectName: test
@@ -14,7 +17,7 @@ import java.util.Calendar;
  * @updateRemark:
  * @version: v1.0
  */
-
+@Slf4j
 public class CalendarData {
 
     private static Integer getSecondsToNextDay() {
@@ -26,7 +29,18 @@ public class CalendarData {
         return (int) ((calendar.getTimeInMillis() - System.currentTimeMillis()) / 1000);
     }
 
-    public static void main(String[] args) {
-        System.out.println(getSecondsToNextDay());
+    private static void dataToLong() {
+        Date date = new Date();
+        System.out.println(date.getTime());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            log.error("error",e);
+        }
+        log.info(String.valueOf(System.currentTimeMillis()));
     }
+
+    public static void main(String[] args) {
+    }
+
 }
