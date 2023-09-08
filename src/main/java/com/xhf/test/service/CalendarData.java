@@ -1,7 +1,11 @@
 package com.xhf.test.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -18,6 +22,7 @@ import java.util.Date;
  * @version: v1.0
  */
 @Slf4j
+@Service
 public class CalendarData {
 
     private static Integer getSecondsToNextDay() {
@@ -40,7 +45,19 @@ public class CalendarData {
         log.info(String.valueOf(System.currentTimeMillis()));
     }
 
+    private static Long DataStringToLong(Date d){
+        try {
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Long epho = df.parse(df.format(d)).getTime() / 1000;
+            return epho;
+        } catch (ParseException e) {
+            log.error("error",e);
+            return null;
+        }
+    }
+
     public static void main(String[] args) {
+        dataToLong();
     }
 
 }
