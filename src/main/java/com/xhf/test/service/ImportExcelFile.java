@@ -1,20 +1,12 @@
 package com.xhf.test.service;
 
-import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
-import java.io.*;
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-
-
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
+
+import java.awt.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -40,14 +32,10 @@ public class ImportExcelFile {
         FileDialog fileDialog = new FileDialog(new Frame(), "选择CSV或Excel文件", FileDialog.LOAD);
         // 限制只有文件夹和csv和excel文件才能被看见
         fileDialog.setFile("*.csv;*.xls;*.xlsx");
-
-
         // 显示文件选择对话框
         fileDialog.setVisible(true);
-
         // 获取选择的文件路径
         String selectedFilePath = fileDialog.getDirectory() + fileDialog.getFile();
-
         // 如果文件路径不为空，尝试使用桌面打开该文件
         if (!selectedFilePath.isEmpty()) {
             File selectedFile = new File(selectedFilePath);
@@ -58,7 +46,6 @@ public class ImportExcelFile {
             }
         }
     }
-
     public void openFile2(){
         String filePath = "D:\\test\\备货单号2.csv";
         File file = new File(filePath);
