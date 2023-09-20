@@ -1,6 +1,10 @@
 package com.xhf.test.service;
 
 import com.xhf.test.model.A;
+import org.springframework.beans.BeanUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @projectName: test
@@ -20,16 +24,19 @@ import com.xhf.test.model.A;
 public class ChangeModel {
 
     public static void main(String[] args) {
-        A a = new A();
-        a.setA("1");
-        a.setB(true);
-        Integer count=1;
-        count++;
-        count++;
-        count++;
-        count++;
-        count++;
-        change(a,count,true);
+//        A a = new A();
+//        a.setA("1");
+//        a.setB(true);
+//        Integer count=1;
+//        count++;
+//        count++;
+//        count++;
+//        count++;
+//        count++;
+//        change(a,count,true);
+        List<Integer> list = new ArrayList<>();
+        change(list);
+        change(list);
     }
 
     /**
@@ -41,16 +48,25 @@ public class ChangeModel {
      * @Date: 2023/9/18 17:25
      */
     private static void change(A a, Integer count,Boolean flag) {
-        if(count<5){
+        A a1 =new A();
+        BeanUtils.copyProperties(a,a1);
+        if(count<10){
             a.setA(count.toString());
             a.setB(flag);
             System.out.println(a.toString());
             change(a,++count,!flag);
         }
-        System.out.println(a.toString());
+        System.out.println(a1.toString());
         System.out.println(count);
         System.out.println(flag);
 
+    }
+
+    private static void change(List<Integer> list){
+        Integer num =list.size();
+        num++;
+        list.add(num);
+        System.out.println(list.toString());
     }
 
 }
