@@ -1,4 +1,4 @@
-package com.xhf.test.service.designPattern.decoratorPattern;
+package com.xhf.test.service.designPattern.factoryPattern;
 
 /**
  * @projectName: test

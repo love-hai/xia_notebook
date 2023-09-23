@@ -1,4 +1,4 @@
-package com.xhf.test.service.designPattern.decoratorPattern;
+package com.xhf.test.service.designPattern.factoryPattern;
 
 /**
  * @projectName: test
@@ -12,7 +12,7 @@ package com.xhf.test.service.designPattern.decoratorPattern;
  * @updateRemark:
  */
 
-public class LandscapePainting implements Painting{
+public class LandscapePainting implements Painting {
 
         @Override
         public void make() {
