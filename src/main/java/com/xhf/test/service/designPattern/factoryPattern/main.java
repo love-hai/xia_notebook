@@ -22,5 +22,8 @@ public class main {
         painting.make();
         painting = paintingFactory.getPainting(PaintingTypeEnum.LANDSCAPEPAINTING.getCode());
         painting.make();
+        if(painting instanceof LandscapePainting){
+            ((LandscapePainting) painting).make2();
+        }
     }
 }
