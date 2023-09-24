@@ -3,3 +3,5 @@
 ###链接地址<https://www.runoob.com/design-pattern/design-pattern-intro.html>
 ##具体的模式
 ###1.装饰器模式 decorator pattern
+###2.工厂模式 factory pattern
+###3.策略模式 strategy pattern
