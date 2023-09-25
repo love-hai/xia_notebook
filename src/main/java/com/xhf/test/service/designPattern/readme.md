@@ -5,3 +5,4 @@
 ###1.装饰器模式 decorator pattern
 ###2.工厂模式 factory pattern
 ###3.策略模式 strategy pattern
+###4.模版模式 template pattern
