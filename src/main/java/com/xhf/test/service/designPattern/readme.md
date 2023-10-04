@@ -6,3 +6,4 @@
 ###2.工厂模式 factory pattern
 ###3.策略模式 strategy pattern
 ###4.模版模式 template pattern
+###5.抽象工厂模式 abstract factory pattern
