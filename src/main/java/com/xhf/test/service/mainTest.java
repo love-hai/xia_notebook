@@ -1,6 +1,7 @@
 package com.xhf.test.service;
 
-import java.util.List;
+import com.xhf.test.service.tool.CalendarData;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @projectName: test
@@ -13,18 +14,11 @@ import java.util.List;
  * @updateDate: 2023/9/21 14:20
  * @updateRemark:
  */
-
+@Slf4j
 public class mainTest {
 
     public static void main(String[] args) {
-//        List<String> list = Lists.newArrayList();
-        Integer count = 1;
-        while (count <= 100) {
-            List<String> list = new A1(count).getList();
-            list=null;
-            System.gc();
-            System.out.println(list);
-            count++;
-        }
+        CalendarData calendarData = new CalendarData();
+       log.info(calendarData.getStringOfTime());
     }
 }
