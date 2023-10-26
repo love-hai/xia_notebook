@@ -10,6 +10,16 @@
 | 那个上新生命周期的筛选项，有勾选的全部都取消              |          |
 | 浏览器更新后删除历史残留版本                              | 完成     |
 
+# shopee店铺上下架分表
+
+## 新增的api
+
+
+| Method | 方法名             | 注释               | url                               | Controller         | service |
+| -------- | -------------------- | -------------------- | ----------------------------------- | -------------------- | --------- |
+| Post   | getShopProductList | shopee店铺商品查询 | /shopee-discount/get-product-list | DiscountController | base    |
+|        |                    |                    |                                   |                    |         |
+
 # 系统升级通知
 
 ## 新增的api
