@@ -20,6 +20,20 @@
 | Post   | getShopProductList | shopee店铺商品查询 | /shopee-discount/get-product-list | DiscountController | base    |
 |        |                    |                    |                                   |                    |         |
 
+## 提醒
+
+店铺查询时，sku的上下架状态未作为查询条件
+
+### 表格的菜单功能
+
+计算价格
+
+同步上传
+
+导出价格
+
+产品下架
+
 # 系统升级通知
 
 ## 新增的api

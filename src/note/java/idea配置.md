@@ -2,15 +2,17 @@
 
 ###### 类方法注释
 
-```
+
+
 **
- * @Description: $description$
- $params$ 
- * @return: $returns$
- * @Author: xiahaifeng
- * @Date: $date$ $time$
- */
-```
+
+* MethodName: $method$
+* @Description: $END$
+  $params$
+* @return: $returns$
+* @author xiahaifeng
+* @Date: $date$ $time$
+  */
 
 params:默认值
 
