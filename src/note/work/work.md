@@ -9,6 +9,13 @@
 | 浏览器的订阅通知不要每次都弹出来                          |          |
 | 那个上新生命周期的筛选项，有勾选的全部都取消              |          |
 | 浏览器更新后删除历史残留版本                              | 完成     |
+| temu浏览器在使用的时候不要将temu.zip当文件夹使用          |          |
+
+# 业务问题
+
+## 如何解决了用户的问题该如何回答
+
+@userName 具体问题，问题原因
 
 # shopee店铺上下架分表
 
@@ -20,9 +27,10 @@
 | Post   | getShopProductList | shopee店铺商品查询 | /shopee-discount/get-product-list | DiscountController | base    |
 |        |                    |                    |                                   |                    |         |
 
-## 提醒
+## warnings
 
-店铺查询时，sku的上下架状态未作为查询条件
+* 店铺查询时，sku的上下架状态未作为查询条件
+* batchAddProductPriceOffline批量插入的时候，mycat会根据插入的店铺编码字段，自己选择数据库吗。
 
 ### 表格的菜单功能
 
