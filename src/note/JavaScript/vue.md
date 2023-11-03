@@ -44,8 +44,7 @@ this.$nextTick方法可以将里面的回调函数延迟到下次dom节点更新
 
 实现：this.$set(row, 'downloading', true);
 
-    <el-button v-loading="Loading" size="small" type="text" @click="function1(scope.$index, scope.row)">
-
+<el-button v-loading="Loading" size="small" type="text" @click="function1(scope.$index, scope.row)">
 ###### 我只改变某一行的数据而不是一个表（未测试）
 
 ```javascript
@@ -64,6 +63,15 @@ this.$nextTick方法可以将里面的回调函数延迟到下次dom节点更新
 
 ```
 
-    ![](file:///C:/Users/Admin/AppData/Local/Temp/msohtmlclip1/01/clip_image011.jpg)
+##### 组件加载问题
 
-![](file:///C:/Users/Admin/AppData/Local/Temp/msohtmlclip1/01/clip_image012.png)
+当一个页面加载完了之后，就操作canvas,但是canvas还没有加载完，就会报错，所以我们需要在canvas加载完之后再进行操作。
+甚至有时候钩子函数都不起作用。
+
+```
+Promise.resolve().then(() => {
+      this.$nextTick(() => {
+        this.showNotice();
+      });
+    });
+```

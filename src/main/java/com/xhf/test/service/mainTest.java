@@ -1,6 +1,6 @@
 package com.xhf.test.service;
 
-import com.xhf.test.service.tool.CalendarData;
+import com.xhf.test.service.tool.CompareObject;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class mainTest {
 
     public static void main(String[] args) {
-        CalendarData calendarData = new CalendarData();
-       log.info(calendarData.getStringOfTime());
+        CompareObject compareObject = new CompareObject();
+        log.info(String.valueOf(compareObject.compareVersion("0.0.0.10","0.0.1")));
     }
 }
