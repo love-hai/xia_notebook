@@ -37,4 +37,17 @@ public class CompareObject {
         }
         return 0;
     }
+
+    /**
+     * MethodName: isVersionNoRight
+     * @Description: 判断版本号是否符合规范，例如只有数字和小数点，两边没有小数点
+     * @param versionNo java.lang.String  :
+     * @return: java.lang.Boolean
+     * @author xiahaifeng
+     * @Date: 2023/11/4 8:38
+     */
+    public Boolean isVersionNoRight(String versionNo) {
+        String regex = "^[0-9]+(.[0-9]+)*$";
+        return versionNo.matches(regex);
+    }
 }

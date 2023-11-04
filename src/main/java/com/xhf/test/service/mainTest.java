@@ -1,7 +1,9 @@
 package com.xhf.test.service;
 
-import com.xhf.test.service.tool.CompareObject;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @projectName: test
@@ -18,7 +20,26 @@ import lombok.extern.slf4j.Slf4j;
 public class mainTest {
 
     public static void main(String[] args) {
-        CompareObject compareObject = new CompareObject();
-        log.info(String.valueOf(compareObject.compareVersion("0.0.0.10","0.0.1")));
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("178895");
+        list.add("1.1.-8");
+        list.add("1.1");
+        list.add("1.1.1");
+        list.add("");
+        list.add(".");
+        list.add("1.");
+        list.add(".1");
+        list.add("1.1.");
+        list.add("1.1.1.");
+        list.add("56xw.555");
+        list.add(".555");
+        String regex = "^[0-9]+(.[0-9]+)*$";
+        list.forEach(versionNo -> {
+            Boolean result = versionNo.matches(regex);
+            log.info("versionNo: {}", versionNo);
+            log.info("result: {}", result);
+        });
+
     }
 }
