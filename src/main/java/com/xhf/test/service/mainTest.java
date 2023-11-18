@@ -1,9 +1,7 @@
 package com.xhf.test.service;
 
+import com.xhf.test.model.NoteEventSubjectParam;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @projectName: test
@@ -20,26 +18,15 @@ import java.util.List;
 public class mainTest {
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("1");
-        list.add("178895");
-        list.add("1.1.-8");
-        list.add("1.1");
-        list.add("1.1.1");
-        list.add("");
-        list.add(".");
-        list.add("1.");
-        list.add(".1");
-        list.add("1.1.");
-        list.add("1.1.1.");
-        list.add("56xw.555");
-        list.add(".555");
-        String regex = "^[0-9]+(.[0-9]+)*$";
-        list.forEach(versionNo -> {
-            Boolean result = versionNo.matches(regex);
-            log.info("versionNo: {}", versionNo);
-            log.info("result: {}", result);
-        });
+        NoteEventSubjectParam noteEventSubjectParam = new NoteEventSubjectParam();
+        noteEventSubjectParam.setNoteEventSubjectType((byte) 1);
+        noteEventSubjectParam.setPlatFromCode("platFromCode");
+        noteEventSubjectParam.getNoteEventSubject().add("noteEventSubject");
+        System.out.println(noteEventSubjectParam.toString());
 
+        NoteEventSubjectParam noteEventSubjectParam1 = new NoteEventSubjectParam(noteEventSubjectParam.toString());
+        System.out.println(noteEventSubjectParam1.getNoteEventSubjectType());
+        System.out.println(noteEventSubjectParam1.getPlatFromCode());
+        System.out.println(noteEventSubjectParam1.getNoteEventSubject());
     }
 }
