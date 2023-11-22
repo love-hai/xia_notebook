@@ -164,6 +164,6 @@ execution(modifiers-pattern? ret-type-pattern declaring-type-pattern? name-patte
 ### slf4j配置
 [https://github.com/love-hai/Java_Study_test/blob/master/src/main/resources/log4j.properties]()
 
-### java的序列化和反序列化问题
+## java的序列化和反序列化问题
 1. 序列化：将对象转换成有序字节序列的过程称为对象的序列化，方便这些对象在网络中传输，可以保存和重建
 2. 反序列化：将字节序列恢复为对象的过程称为对象的反序列化。
