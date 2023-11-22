@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="test" />
         <module name="NetInterface" />
+        <module name="xhf-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
