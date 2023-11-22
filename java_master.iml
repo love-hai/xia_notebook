@@ -2,7 +2,15 @@
 <module version="4">
   <component name="FacetManager">
     <facet type="NBMindMap" name="NB Mind Map">
-      <configuration />
+      <configuration>
+        <copyParentColorInfoInNew>true</copyParentColorInfoInNew>
+        <unfoldCollapsedTopicInDrop>true</unfoldCollapsedTopicInDrop>
+        <useInsideBrowser>false</useInsideBrowser>
+        <makeRelativePath>true</makeRelativePath>
+        <disableAutocreateProjectKnowledgeFolder>true</disableAutocreateProjectKnowledgeFolder>
+        <useProjectBaseFolderAsRoot>false</useProjectBaseFolderAsRoot>
+        <trimTopicText>false</trimTopicText>
+      </configuration>
     </facet>
   </component>
 </module>
