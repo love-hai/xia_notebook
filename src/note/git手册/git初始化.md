@@ -38,7 +38,7 @@ You’ve successfully authenticated, but GitHub does not provide shell access.�
 #### 设置代理
 
 git config --global https.proxy http://127.0.0.1:`<port>`
-git config --global https.proxy https://127.0.0.1:`<port>`
+git config --global http.proxy https://127.0.0.1:`<port>`
 
 #### 取消代理
 

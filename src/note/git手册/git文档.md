@@ -11,6 +11,7 @@ git config --global core.editor "'D:\tool\Notepad++\notepad++.exe' -multiInst -n
 2. 执行git init (仅仅是做了一个初始化的操作，你的项目里的文件还没有被跟踪。)
 
 #### 从服务器上clone一个git仓库
+
 1. cd 目的目录
 2. 执行git clone <url> (这个命令会在本地创建一个目录，目录名字就是仓库名字，然后把远程仓库的所有数据拉下来放到这个目录里。)
 
