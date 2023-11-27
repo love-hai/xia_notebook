@@ -130,6 +130,36 @@ execution(modifiers-pattern? ret-type-pattern declaring-type-pattern? name-patte
 |MANDATORY|	如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。|
 |NEVER|	以非事务方式执行，如果当前存在事务，则抛出异常。|
 
+### 事务超时时间
+@Transactional(timeout=30) //默认是30秒
+
+### 事务隔离级别
+@Transactional(isolation = Isolation.READ_UNCOMMITTED)：读取未提交数据(会出现脏读, 不可重复读) 基本不使用
+@Transactional(isolation = Isolation.READ_COMMITTED)：读取已提交数据(会出现不可重复读和幻读)
+@Transactional(isolation = Isolation.REPEATABLE_READ)：可重复读(会出现幻读)
+@Transactional(isolation = Isolation.SERIALIZABLE)：串行化
+
+MYSQL: 默认为REPEATABLE_READ级别
+SQLSERVER: 默认为READ_COMMITTED
+
+>1.脏读
+   >> + 定义：一个事务读取到另一事务未提交的更新数据。
+   >> + 例子：事务A修改了一行数据，但尚未提交。在此期间，事务B读取了这行数据，得到了尚未提交的变更。如果事务A回滚，事务B读取到的数据就是“脏”的。
+
+>2.不可重复读 
+   >> + 定义: 在同一事务中, 多次读取同一数据返回的结果有所不同, 换句话说, 后续读取可以读到另一事务已提交的更新数据。
+   >> + 例子: 事务A读取了一行数据，然后事务B修改了这行数据，并提交了。如果事务A再次读取同一行数据，得到的结果就会不同。
+
+>3.可重复读
+   >> + 定义:同一事务中多次 读取数据时, 能够保证所读数据一样, 也就是后续读取不能读到另一事务已提交的更新数据.
+   >> + 例子:事务A读取了一行数据，然后事务B修改了这行数据并提交。即使在事务A再次读取同一行数据，它仍然得到的是最初的结果。
+
+>4.幻读
+![img.png](image/java开发手册/img.png)
+   >> + 定义: 在同一事务中, 多次执行一个查询, 结果集中的行数不一致, 换句话说, 后续查询可以读到另一事务已提交的插入数据。
+   >> + 例子: 幻读，并不是说两次读取获取的结果集不同，幻读侧重的方面是某一次的 select 操作得到的结果所表征的数据状态无法支撑后续的业务操作。
+        更为具体一些：select 某记录是否存在，不存在，准备插入此记录，但执行 insert 时发现此记录已存在，无法插入，此时就发生了幻读。
+
 
 ### 注意：
 
