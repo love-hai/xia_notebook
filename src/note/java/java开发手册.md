@@ -52,6 +52,11 @@ POJO是DO/DTO/BO/VO的统称，禁止命名成xxxPOJO。
 - 不要使用一个常量类维护所有常量，要按常量功能进行归类，分开维护。
 - 常量的复用层次有五层
 
+## java注释
+@see 用于指定参考的类或者方法
+@link 用于指定参考的类或者方法  例：{@link com.xhf.test.service.ChangeModel}
+@throws 用于指定方法可能抛出的异常
+
 # java对象与引用
 
 ## [基本数据类型和封装数据类型的引用原理](https://github.com/love-hai/Java_Study_test/blob/master/src/main/java/com/xhf/test/service/ChangeModel.java)
