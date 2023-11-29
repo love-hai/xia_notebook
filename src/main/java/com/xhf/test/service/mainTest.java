@@ -1,7 +1,8 @@
 package com.xhf.test.service;
 
-import com.xhf.test.model.NoteEventSubjectParam;
+import com.xhf.test.model.IntWrapper;
 import lombok.extern.slf4j.Slf4j;
+
 
 /**
  * @projectName: test
@@ -18,15 +19,16 @@ import lombok.extern.slf4j.Slf4j;
 public class mainTest {
 
     public static void main(String[] args) {
-        NoteEventSubjectParam noteEventSubjectParam = new NoteEventSubjectParam();
-        noteEventSubjectParam.setNoteEventSubjectType((byte) 1);
-        noteEventSubjectParam.setPlatFromCode("platFromCode");
-        noteEventSubjectParam.getNoteEventSubject().add("noteEventSubject");
-        System.out.println(noteEventSubjectParam.toString());
+        IntWrapper q = new IntWrapper(1);
+        int b = 1;
+        mainTest mainTest = new mainTest();
+        mainTest.test(q,b);
+        log.info("a:{},b:{}",q.getValue(),b);
+    }
 
-        NoteEventSubjectParam noteEventSubjectParam1 = new NoteEventSubjectParam(noteEventSubjectParam.toString());
-        System.out.println(noteEventSubjectParam1.getNoteEventSubjectType());
-        System.out.println(noteEventSubjectParam1.getPlatFromCode());
-        System.out.println(noteEventSubjectParam1.getNoteEventSubject());
+    private void test(IntWrapper a,int b){
+        a.setValue(a.getValue()+1);
+        b = 2;
+        log.info("a:{},b:{}",a.getValue(),b);
     }
 }
