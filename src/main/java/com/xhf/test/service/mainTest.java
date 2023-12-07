@@ -1,7 +1,9 @@
 package com.xhf.test.service;
 
 import com.xhf.test.model.IntWrapper;
+import com.xhf.test.service.tool.MyFileUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
@@ -17,13 +19,14 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class mainTest {
+    @Autowired
+    private static ReadTime readTime;
 
     public static void main(String[] args) {
-        IntWrapper q = new IntWrapper(1);
-        int b = 1;
-        mainTest mainTest = new mainTest();
-        mainTest.test(q,b);
-        log.info("a:{},b:{}",q.getValue(),b);
+
+        MyFileUtils myFileUtils = new MyFileUtils();
+        String fileName = "lalangBrowser-0.2.3.0.exe";
+        myFileUtils.downloadFile("http://update.biz-export.com/"+fileName,"C:\\Users\\Admin\\Downloads",fileName);
     }
 
     private void test(IntWrapper a,int b){
