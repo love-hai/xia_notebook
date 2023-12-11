@@ -75,7 +75,7 @@ public class MyFileUtils {
             try (InputStream is = con.getInputStream();
                  FileOutputStream os = new FileOutputStream(new File(fullFileName), true)) {
 
-                log.info("文件下载开始:" + fileName);
+                log.info("文件下载开始:" + fullFileName);
                 // 1K的数据缓冲
                 byte[] bs = new byte[1024];
                 // 读取到的数据长度
@@ -90,7 +90,7 @@ public class MyFileUtils {
             } catch (IOException e) {
                 log.error("文件下载异常", e);
             } finally {
-                log.info("文件下载结束:" + fileName);
+                log.info("文件下载结束:" + fullFileName);
             }
         } catch (IOException e) {
             log.error("文件下载连接异常", e);
