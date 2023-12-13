@@ -17,9 +17,10 @@ import java.util.Arrays;
  * @updateRemark:
  */
 @Slf4j
-public class ByteBufferExample {
+public class ByteBufferExample{
     public static void main(String[] args) {
         //创建一个10和字节大小的字节缓冲区。
+
         ByteBuffer byteBuffer = ByteBuffer.allocate(20);
         System.out.println("capacity = " + byteBuffer.capacity());
         System.out.println("limit = " + byteBuffer.limit());

@@ -1,7 +1,6 @@
 package com.xhf.test.service;
 
 import com.xhf.test.model.IntWrapper;
-import com.xhf.test.service.tool.MyFileUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,9 +22,8 @@ public class mainTest {
     private static ReadTime readTime;
 
     public static void main(String[] args) {
-        MyFileUtils myFileUtils = new MyFileUtils();
-        String fileName = "lalangBrowser-0.1.1.6.exe";
-        myFileUtils.downloadFile("http://update.biz-export.com/"+fileName,"C:\\Users\\Admin\\Downloads",fileName,true);
+       char[] chars = "hello world".toCharArray();
+       System.out.println(chars);
 
     }
 
