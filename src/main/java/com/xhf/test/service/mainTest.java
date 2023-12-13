@@ -22,8 +22,10 @@ public class mainTest {
     private static ReadTime readTime;
 
     public static void main(String[] args) {
-       char[] chars = "hello world".toCharArray();
-       System.out.println(chars);
+       String a ="123";
+        int i = a.charAt(1) - '0';
+        System.out.println(i);
+
 
     }
 
