@@ -1,5 +1,9 @@
 package com.xhf.test.service.tool;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * @projectName: test
  * @package: com.xhf.test.service.tool
@@ -50,4 +54,23 @@ public class CompareObject {
         String regex = "^[0-9]+(.[0-9]+)*$";
         return versionNo.matches(regex);
     }
+
+    public File[] getFiles(String path,Long versionId,String filename){
+        File uploadDir = new File(path);
+        File[] chunkFiles = uploadDir.listFiles((dir, name) -> name.startsWith(versionId +filename + "."));
+        // 排序
+        if(null == chunkFiles){
+            return null;
+        }
+        Arrays.sort(chunkFiles, Comparator.comparingInt(o -> Integer.parseInt(o.getName().substring(o.getName().lastIndexOf(".") + 1))));
+        return chunkFiles;
+    }
+
+    public static void main(String[] args) {
+        MyFileUtils myFileUtils = new MyFileUtils();
+        String fileName = "lalangBrowser-0.1.1.6.exe";
+        myFileUtils.downloadFile("http://update.biz-export.com/"+fileName,"C:\\Users\\Admin\\Downloads",fileName,true);
+
+    }
+
 }

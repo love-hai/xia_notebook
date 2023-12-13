@@ -52,6 +52,11 @@ POJO是DO/DTO/BO/VO的统称，禁止命名成xxxPOJO。
 - 不要使用一个常量类维护所有常量，要按常量功能进行归类，分开维护。
 - 常量的复用层次有五层
 
+## java注释
+@see 用于指定参考的类或者方法
+@link 用于指定参考的类或者方法  例：{@link com.xhf.test.service.ChangeModel}
+@throws 用于指定方法可能抛出的异常
+
 # java对象与引用
 
 ## [基本数据类型和封装数据类型的引用原理](https://github.com/love-hai/Java_Study_test/blob/master/src/main/java/com/xhf/test/service/ChangeModel.java)
@@ -105,6 +110,56 @@ execution(modifiers-pattern? ret-type-pattern declaring-type-pattern? name-patte
 * 异常类型匹配（throws-pattern?）
 
 ## 事务注解 Spring @[Transactional](https://so.csdn.net/so/search?q=Transactional&spm=1001.2101.3001.7020)
+|属性名|	说明|
+|---|---|
+|name|	当在配置文件中有多个 TransactionManager , 可以用该属性指定选择哪个事务管理器。|
+|propagation|	事务的传播行为，默认值为 REQUIRED。|
+|isolation|	事务的隔离度，默认值采用 DEFAULT。|
+|timeout|	事务的超时时间，默认值为-1。如果超过该时间限制但事务还没有完成，则自动回滚事务。|
+|read-only|	指定事务是否为只读事务，默认值为 false；为了忽略那些不需要事务的方法，比如读取数据，可以设置 read-only 为 true。|
+|rollback-for|	用于指定能够触发事务回滚的异常类型，如果有多个异常类型需要指定，各类型之间可以通过逗号分隔。|
+|no-rollback-for|	抛出 no-rollback-for 指定的异常类型，不回滚事务。|
+
+### 事务传播行为
+|属性名|	说明| 
+|---|---|
+|REQUIRED|	(默认) 如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务。|
+|SUPPORTS|	如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务方式执行。这是与REQUIRED的区别之一，一般用于非事务性的方法，比如读取数据。|
+|REQUIRES_NEW|	创建一个新的事务，如果当前存在事务，则把当前事务挂起。|
+|NOT_SUPPORTED|	以非事务方式执行操作，如果当前存在事务，则把当前事务挂起。想要在事务中执行非事务方法|
+|MANDATORY|	如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。|
+|NEVER|	以非事务方式执行，如果当前存在事务，则抛出异常。|
+
+### 事务超时时间
+@Transactional(timeout=30) //默认是30秒
+
+### 事务隔离级别
+  >+ `@Transactional(isolation = Isolation.READ_UNCOMMITTED)`：读取未提交数据(会出现脏读, 不可重复读) 基本不使用  
+  >+ `@Transactional(isolation = Isolation.READ_COMMITTED)`：读取已提交数据(会出现不可重复读和幻读)  
+  >+ `@Transactional(isolation = Isolation.REPEATABLE_READ)`：可重复读(会出现幻读)  
+  >+ `@Transactional(isolation = Isolation.SERIALIZABLE)`：串行化
+
+MYSQL: 默认为REPEATABLE_READ级别
+SQLSERVER: 默认为READ_COMMITTED
+
+>1.脏读
+   >> + 定义：一个事务读取到另一事务未提交的更新数据。
+   >> + 例子：事务A修改了一行数据，但尚未提交。在此期间，事务B读取了这行数据，得到了尚未提交的变更。如果事务A回滚，事务B读取到的数据就是“脏”的。
+
+>2.不可重复读 
+   >> + 定义: 在同一事务中, 多次读取同一数据返回的结果有所不同, 换句话说, 后续读取可以读到另一事务已提交的更新数据。
+   >> + 例子: 事务A读取了一行数据，然后事务B修改了这行数据，并提交了。如果事务A再次读取同一行数据，得到的结果就会不同。
+
+>3.可重复读
+   >> + 定义:同一事务中多次 读取数据时, 能够保证所读数据一样, 也就是后续读取不能读到另一事务已提交的更新数据.
+   >> + 例子:事务A读取了一行数据，然后事务B修改了这行数据并提交。即使在事务A再次读取同一行数据，它仍然得到的是最初的结果。
+
+>4.幻读
+![img.png](image/java开发手册/img.png)
+   >> + 定义: 在同一事务中, 多次执行一个查询, 结果集中的行数不一致, 换句话说, 后续查询可以读到另一事务已提交的插入数据。
+   >> + 例子: 幻读，并不是说两次读取获取的结果集不同，幻读侧重的方面是某一次的 select 操作得到的结果所表征的数据状态无法支撑后续的业务操作。
+        更为具体一些：select 某记录是否存在，不存在，准备插入此记录，但执行 insert 时发现此记录已存在，无法插入，此时就发生了幻读。
+
 
 ### 注意：
 

@@ -1,7 +1,9 @@
 package com.xhf.test.service;
 
-import com.xhf.test.model.NoteEventSubjectParam;
+import com.xhf.test.model.IntWrapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 /**
  * @projectName: test
@@ -16,17 +18,20 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class mainTest {
+    @Autowired
+    private static ReadTime readTime;
 
     public static void main(String[] args) {
-        NoteEventSubjectParam noteEventSubjectParam = new NoteEventSubjectParam();
-        noteEventSubjectParam.setNoteEventSubjectType((byte) 1);
-        noteEventSubjectParam.setPlatFromCode("platFromCode");
-        noteEventSubjectParam.getNoteEventSubject().add("noteEventSubject");
-        System.out.println(noteEventSubjectParam.toString());
+       String a ="123";
+        int i = a.charAt(1) - '0';
+        System.out.println(i);
 
-        NoteEventSubjectParam noteEventSubjectParam1 = new NoteEventSubjectParam(noteEventSubjectParam.toString());
-        System.out.println(noteEventSubjectParam1.getNoteEventSubjectType());
-        System.out.println(noteEventSubjectParam1.getPlatFromCode());
-        System.out.println(noteEventSubjectParam1.getNoteEventSubject());
+
+    }
+
+    private void test(IntWrapper a,int b){
+        a.setValue(a.getValue()+1);
+        b = 2;
+        log.info("a:{},b:{}",a.getValue(),b);
     }
 }
