@@ -1,6 +1,7 @@
 package com.xhf.leetCode;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
@@ -19,11 +20,11 @@ public class Solution20231214 {
             qindex[i] = i;
         }
         // 按照queries的值，将他的下标排序
-        Arrays.sort(qindex, (i, j) -> queries[i] - queries[j]);
+        Arrays.sort(qindex, Comparator.comparingInt(i -> queries[i]));
         // 按照intervals的left排序
-        Arrays.sort(intervals, (i, j) -> i[0] - j[0]);
+        Arrays.sort(intervals, Comparator.comparingInt(i -> i[0]));
         // 优先队列，按照区间的长度排序
-        PriorityQueue<int[]> pq = new PriorityQueue<int[]>((a, b) -> a[0] - b[0]);
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
         // 返回值
         int[] res = new int[queries.length];
         // 初始化为-1
