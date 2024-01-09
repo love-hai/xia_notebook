@@ -22,7 +22,7 @@ public class Solution20231219 {
      * 设整个矩阵周边环绕着一圈值为 -1 的格子。要求必须写出时间复杂度为 O(m log(n)) 或 O(n log(m)) 的算法
      */
     public int[] findPeakGrid(int[][] mat) {
-
+        return null;
     }
 
 }
