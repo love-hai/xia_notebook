@@ -1,6 +1,7 @@
 package com.xhf.test.service.tool;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -64,6 +65,10 @@ public class CompareObject {
         }
         Arrays.sort(chunkFiles, Comparator.comparingInt(o -> Integer.parseInt(o.getName().substring(o.getName().lastIndexOf(".") + 1))));
         return chunkFiles;
+    }
+
+    public void compareBigDecimals(BigDecimal b1, BigDecimal b2){
+        System.out.println(b1.compareTo(b2));
     }
 
     public static void main(String[] args) {
