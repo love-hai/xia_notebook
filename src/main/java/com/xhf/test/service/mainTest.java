@@ -3,8 +3,7 @@ package com.xhf.test.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.text.SimpleDateFormat;
 
 
 /**
@@ -37,13 +36,9 @@ public class mainTest {
 //        System.out.println(calendar.get(Calendar.MONTH));
 //        System.out.println(calendar.get(Calendar.YEAR));
 //        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        String text ="6685837376 申报价格：35.00元 寄样信息：无需寄样 状态：价格申报中 货号：531838 VMI";
-        Pattern pattern = Pattern.compile("状态：\\s*(.*?)\\s*货号：");
-        Matcher matcher = pattern.matcher(text);
-        if (matcher.find()) {
-            System.out.println(matcher.group(1));
-        }
+
     }
 
 

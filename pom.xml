@@ -129,6 +129,12 @@
             <version>1.16.1</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.ocpsoft.prettytime</groupId>
+            <artifactId>prettytime</artifactId>
+            <version>5.0.7.Final</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
