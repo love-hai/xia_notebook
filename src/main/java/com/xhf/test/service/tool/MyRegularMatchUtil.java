@@ -69,7 +69,7 @@ public class MyRegularMatchUtil {
      * @createDate: 2024/1/9 8:33
      */
     public static String getMatchString(String str, String frontPattern,String backPattern) {
-        Pattern pattern = Pattern.compile(frontPattern+"(.*?)" + backPattern);
+        Pattern pattern = Pattern.compile(frontPattern+"(.*)" + backPattern);
         // Create a matcher for the input string
         Matcher matcher = pattern.matcher(str);
         // Find all matches
