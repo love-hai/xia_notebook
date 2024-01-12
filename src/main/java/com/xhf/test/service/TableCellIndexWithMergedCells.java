@@ -1,57 +1,38 @@
 package com.xhf.test.service;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.Collections;
+
+@Slf4j
 public class TableCellIndexWithMergedCells {
-
-    public static void main(String[] args) {
-        String html = "<table>" +
-                "  <tr>" +
-                "    <td rowspan='2'>A</td>" +
-                "    <td>B</td>" +
-                "    <td>C</td>" +
-                "  </tr>" +
-                "  <tr>" +
-                "    <td>D</td>" +
-                "    <td>E</td>" +
-                "  </tr>" +
-                "</table>";
-
-        Document doc = Jsoup.parse(html);
-        Elements tables = doc.select("table");
-
-        for (Element table : tables) {
-            int rowIndex = 0;
-
-            for (Element row : table.select("tr")) {
-                int columnIndex = 0;
-
-                for (Element cell : row.select("td, th")) {
-                    // 获取单元格的 rowspan 和 colspan 属性
-                    int rowspan = Integer.parseInt(cell.attr("rowspan"));
-                    int colspan = Integer.parseInt(cell.attr("colspan"));
-
-                    // 处理单元格内容及其在表格中的位置
-                    String cellText = cell.text();
-                    System.out.println("Content: " + cellText +
-                            ", Original Row Index: " + rowIndex +
-                            ", Original Column Index: " + columnIndex);
-
-                    // 更新列索引
-                    columnIndex += colspan;
-
-                    // 更新行索引，跳过被合并的行
-                    for (int i = 1; i < rowspan; i++) {
-                        rowIndex++;
+    public Element tableSegmentation(Element table) {
+        Elements trs = table.select("tr");
+        int j;
+        int maxCol = trs.get(0).select("td").size();
+        for (j = 0; j < maxCol; j++) {
+            for (int i = 0; i < trs.size(); i++) {
+                Element tr = trs.get(i);
+                Elements tds = tr.select("td");
+                try {
+                    Element td = tds.get(j);
+                    if (td.hasAttr("rowspan")) {
+                        int rowspan = Integer.parseInt(td.attr("rowspan"));
+                        // 将rowspan赋值1
+                        td.attr("rowspan", "1");
+                        for (int k = 1; k < rowspan; k++) {
+                            Element nextTr = trs.get(i + k);
+                            // 在nextTr的第j个位置插入一个td
+                            nextTr.insertChildren(Math.min(nextTr.children().size(), j), Collections.singleton(td.clone()));
+                        }
                     }
+                } catch (Exception e) {
+                    log.error("表格分割异常", e);
                 }
-
-                // 更新行索引
-                rowIndex++;
             }
         }
+        return table;
     }
 }
