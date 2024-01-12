@@ -35,7 +35,7 @@ public class TimeServer {
             b.group(bossGroup, workGroup)
                     .channel(NioServerSocketChannel.class)
                     .option(ChannelOption.SO_BACKLOG, 1024)
-                    .childHandler(new ChildChannelHandler());
+                    .childHandler(new TimeServerHandler());
             // 绑定端口，同步等待成功
             ChannelFuture f = b.bind(port).sync();
 
@@ -51,11 +51,11 @@ public class TimeServer {
         }
     }
 
-    private class ChildChannelHandler extends ChannelInitializer<SocketChannel>{
+    private static class ChildChannelHandler extends ChannelInitializer<SocketChannel>{
         @Override
         protected void initChannel(SocketChannel socketChannel) throws Exception {
-            socketChannel.pipeline().addLast(new LineBasedFrameDecoder(1024));
-            socketChannel.pipeline().addLast(new StringDecoder());
+//            socketChannel.pipeline().addLast(new LineBasedFrameDecoder(1024));
+//            socketChannel.pipeline().addLast(new StringDecoder());
             socketChannel.pipeline().addLast(new TimeServerHandler());
         }
 
@@ -65,7 +65,7 @@ public class TimeServer {
         int port = 8484;
         if(args != null && args.length > 0){
             try {
-                port = Integer.valueOf(args[0]);
+                port = Integer.parseInt(args[0]);
             } catch (Exception e) {
                 log.error("TimeServer.main() error", e);
             }
