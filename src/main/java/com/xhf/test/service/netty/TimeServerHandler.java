@@ -24,11 +24,7 @@ public class TimeServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception{
-        ByteBuf buf = (ByteBuf) msg;
-        byte[] req = new byte[buf.readableBytes()];
-        buf.readBytes(req); // 将缓冲区的字节数组复制到新建的byte数组中
-        String body = new String(req, StandardCharsets.UTF_8)
-                .substring(0, req.length - System.getProperty("line.separator").length());
+        String body = (String) msg;
         System.out.println("The time server receive order : " + body + " ; the counter is : " + ++counter);
         String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date(System.currentTimeMillis()).toString() : "BAD ORDER";
         currentTime = currentTime + System.getProperty("line.separator");
