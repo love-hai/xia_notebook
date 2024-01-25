@@ -32,15 +32,15 @@ public class MyRegularMatchUtil {
 
 
     /**
-     * MethodName: getMatchString
-     * Description: 从字符串中得到匹配的字符串
-     * @param str          java.lang.String  : 原始字符串
-     * @param frontPattern java.lang.String  : 前面的匹配字符串
-     * @param midPattern      java.lang.String  : 匹配的字符串
-     * @param backPattern  java.lang.String  : 以什么结尾的字符串
+     * MethodName: getMatchString <br>
+     * Description: 从字符串中得到匹配的字符串<br>
+     * createDate: 2023/11/24 11:15
+     * @param str          java.lang.String  :
+     * @param frontPattern java.lang.String  :
+     * @param midPattern   java.lang.String  :
+     * @param backPattern  java.lang.String  :
      * @return java.lang.String
      * @author xiahaifeng
-     * @createDate: 2023/11/24 11:15
      */
     public static String getMatchString(String str, String frontPattern,String midPattern, String backPattern) {
         // 前面有frontPattern,但是不包含frontPattern，而且以endPattern结尾的字符串

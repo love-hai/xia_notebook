@@ -19,4 +19,10 @@ public class A {
     private String a;
 
     private Boolean b=true;
+
+    public int cAdd(){
+        return c++;
+    }
+
+    private Integer c=1;
 }

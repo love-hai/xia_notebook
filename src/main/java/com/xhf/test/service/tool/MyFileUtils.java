@@ -24,9 +24,16 @@ import java.net.URL;
 @Slf4j
 public class MyFileUtils {
 
+    public static void main(String[] args) {
+        String path = "D:\\test\\test.txt";
+        System.out.println(path.substring(path.lastIndexOf(".")));
+        System.out.println(path.substring(0, path.lastIndexOf(".")));
+    }
+
     /**
      * MethodName: coverOldFile
      * Description: 覆盖旧文件
+     *
      * @param urlString      java.lang.String      :
      * @param exportFilePath java.lang.String      :
      * @param fileName       java.lang.String      :
@@ -35,22 +42,23 @@ public class MyFileUtils {
      * @author xiahaifeng
      * @createDate: 2023/12/8 11:37
      */
-    public void coverOldFile(String urlString, String exportFilePath, String fileName,Boolean...isAppend) {
-        File file = new File(exportFilePath+File.separator+fileName);
-        try{
+    public void coverOldFile(String urlString, String exportFilePath, String fileName, Boolean... isAppend) {
+        File file = new File(exportFilePath + File.separator + fileName);
+        try {
             if (file.exists()) {
                 // 如果文件存在，删除文件
                 file.delete();
             }
-            this.downloadFile(urlString,exportFilePath,fileName,isAppend);
-        }catch (Exception e){
-            log.error("删除文件失败",e);
+            this.downloadFile(urlString, exportFilePath, fileName, isAppend);
+        } catch (Exception e) {
+            log.error("删除文件失败", e);
         }
     }
 
     /**
      * MethodName: downloadFile
      * Description: 下载文件
+     *
      * @param urlString      java.lang.String  :
      * @param exportFilePath java.lang.String  :
      * @param fileName       java.lang.String  :
@@ -59,7 +67,7 @@ public class MyFileUtils {
      * @author xiahaifeng
      * @createDate: 2023/12/8 11:28
      */
-    public void downloadFile(String urlString, String exportFilePath, String fileName,Boolean...isAppend) {
+    public void downloadFile(String urlString, String exportFilePath, String fileName, Boolean... isAppend) {
         try {
             URL url = new URL(urlString);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -67,13 +75,13 @@ public class MyFileUtils {
             // 设置User-Agent头信息
             con.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
             String fullFileName;
-            if(isAppend.length>0&&isAppend[0]){
+            if (isAppend.length > 0 && isAppend[0]) {
                 fullFileName = exportFilePath + File.separator + fileName;
-            }else {
+            } else {
                 fullFileName = this.getFileName(exportFilePath + File.separator + fileName);
             }
             try (InputStream is = con.getInputStream();
-                 FileOutputStream os = new FileOutputStream(new File(fullFileName), true)) {
+                 FileOutputStream os = new FileOutputStream(fullFileName, true)) {
 
                 log.info("文件下载开始:" + fullFileName);
                 // 1K的数据缓冲
@@ -81,12 +89,10 @@ public class MyFileUtils {
                 // 读取到的数据长度
                 int len;
                 // 输出的文件流
-
                 // 开始读取
                 while ((len = is.read(bs)) != -1) {
                     os.write(bs, 0, len);
                 }
-
             } catch (IOException e) {
                 log.error("文件下载异常", e);
             } finally {
@@ -100,35 +106,31 @@ public class MyFileUtils {
     /**
      * MethodName: getFileName
      * Description: 获取正确的文件名
+     *
      * @param path java.lang.String  :
      * @return java.lang.String
      * @author xiahaifeng
      * @createDate: 2023/12/8 8:47
      */
     private String getFileName(String path) {
-        if(StringUtils.isEmpty(path)){
+        if (StringUtils.isEmpty(path)) {
             throw new RuntimeException("文件路径不能为空");
         }
         Integer index = 0;
         //先将后缀和前面的部分分离出来
         String suffix = path.substring(path.lastIndexOf("."));
-        String prefix = path.substring(0,path.lastIndexOf("."));
+        String prefix = path.substring(0, path.lastIndexOf("."));
         String oldPrefix = prefix;
-        while(true){
+        while (true) {
             String fileName = prefix + suffix;
             File file = new File(fileName);
-            if(file.exists()){
+            if (file.exists()) {
                 index++;
                 prefix = oldPrefix + " (" + index + ")";
-            }else{
+            } else {
                 return fileName;
             }
         }
-    }
-    public static void main(String[] args) {
-        String path = "D:\\test\\test.txt";
-        System.out.println(path.substring(path.lastIndexOf(".")));
-        System.out.println(path.substring(0,path.lastIndexOf(".")));
     }
 
 }
