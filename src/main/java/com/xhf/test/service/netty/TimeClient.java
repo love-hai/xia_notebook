@@ -8,17 +8,12 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 
 /**
- * @projectName: test
- * @package: com.xhf.test.service.netty
- * @className: TimeClient
- * @descriptions:
- * @author: xiahaifeng
- * @createDate: 2023/11/29 17:13
- * @updateUser: xiahaifeng
- * @updateDate: 2023/11/29 17:13
- * @updateRemark:
+ * @author xiahaifeng
+ * createDate: 2023/11/29 17:13
  */
 
 public class TimeClient {
@@ -28,21 +23,19 @@ public class TimeClient {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {
-            Bootstrap b = new Bootstrap(); // (1)
-            b.group(workerGroup); // (2)
-            b.channel(NioSocketChannel.class); // (3)
-            b.option(ChannelOption.SO_KEEPALIVE, true); // (4)
+            Bootstrap b = new Bootstrap();
+            b.group(workerGroup);
+            b.channel(NioSocketChannel.class);
+            b.option(ChannelOption.SO_KEEPALIVE, true);
             b.handler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel ch) throws Exception {
+                    ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
+                    ch.pipeline().addLast(new StringDecoder());
                     ch.pipeline().addLast(new TimeClientHandler());
                 }
             });
-
-            // Start the client.
-            ChannelFuture f = b.connect(host, port).sync(); // (5)
-
-            // Wait until the connection is closed.
+            ChannelFuture f = b.connect(host, port).sync();
             f.channel().closeFuture().sync();
         } finally {
             workerGroup.shutdownGracefully();

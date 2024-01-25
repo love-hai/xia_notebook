@@ -5,30 +5,18 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
- * @projectName: test
- * @package: com.xhf.test.service.netty
- * @className: TimeServerHandler
- * @descriptions:
- * @author: xiahaifeng
- * @createDate: 2023/11/29 17:02
- * @updateUser: xiahaifeng
- * @updateDate: 2023/11/29 17:02
- * @updateRemark:
+ * createDate: 2023/11/29 17:02
+ * author: xiahaifeng
  */
 public class TimeServerHandler extends ChannelInboundHandlerAdapter {
     private int counter;
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception{
-        ByteBuf buf = (ByteBuf) msg;
-        byte[] req = new byte[buf.readableBytes()];
-        buf.readBytes(req); // 将缓冲区的字节数组复制到新建的byte数组中
-        String body = new String(req, StandardCharsets.UTF_8)
-                .substring(0, req.length - System.getProperty("line.separator").length());
+        String body = (String) msg;
         System.out.println("The time server receive order : " + body + " ; the counter is : " + ++counter);
         String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date(System.currentTimeMillis()).toString() : "BAD ORDER";
         currentTime = currentTime + System.getProperty("line.separator");
