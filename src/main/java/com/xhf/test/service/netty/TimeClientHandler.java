@@ -13,7 +13,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 public class TimeClientHandler extends ChannelInboundHandlerAdapter {
     private int counter;
     private final byte[] req;
-    String sendMsg = "QUERY TIME \n ORDER" + System.getProperty("line.separator");
+    String sendMsg = "QUERY TIME ORDER" + System.getProperty("line.separator");
     public TimeClientHandler() {
         req = ("QUERY TIME ORDER" + System.getProperty("line.separator")).getBytes();
     }
