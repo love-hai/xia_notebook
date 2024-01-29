@@ -20,6 +20,7 @@ public class ThriftClient {
         try {
             transport.open();
             UserInfo person = client.getUserInfo("张三", "123456");
+            client.saveUserInfo(person);
             UserInfo person1 = new UserInfo();
             person1.setUsername("李四");
             person1.setPassword("123456");
