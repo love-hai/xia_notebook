@@ -1,4 +1,4 @@
-namespace java com.ljheee.thrift
+namespace java service.netty
 
 
 struct UserInfo {

@@ -159,7 +159,7 @@
                 <configuration>
                     <thriftExecutable>D:\tool\thrift\thrift-0.19.0.exe</thriftExecutable>
                     <thriftSourceRoot>src/main/resources</thriftSourceRoot>
-                    <outputDirectory>src/thrift/java</outputDirectory>
+                    <outputDirectory>src/main/java/com/ljheee/thrift</outputDirectory>
                     <generator>java</generator>
                 </configuration>
                 <executions>
