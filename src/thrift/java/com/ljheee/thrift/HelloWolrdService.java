@@ -14,7 +14,7 @@ public class HelloWolrdService {
 
   public interface Iface {
 
-    public com.ljheee.thrift.UserInfo getUserInfo(java.lang.String username, java.lang.String password) throws org.apache.thrift.TException;
+    public UserInfo getUserInfo(java.lang.String username, java.lang.String password) throws org.apache.thrift.TException;
 
     public void saveUserInfo(UserInfo userInfo) throws org.apache.thrift.TException;
 
