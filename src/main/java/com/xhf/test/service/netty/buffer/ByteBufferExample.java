@@ -6,15 +6,8 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 /**
- * @projectName: test
- * @package: com.xhf.test.service.netty.buffer
- * @className: ByteBufferExample
- * @descriptions:
- * @author: xiahaifeng
- * @createDate: 2023/12/8 11:39
- * @updateUser: xiahaifeng
- * @updateDate: 2023/12/8 11:39
- * @updateRemark:
+ * @author xiahaifeng
+ * @createDate 2023/12/8 11:39
  */
 @Slf4j
 public class ByteBufferExample{
