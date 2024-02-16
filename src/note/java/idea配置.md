@@ -5,13 +5,13 @@
 
 
 **
-* MethodName: $method$ <br>
-* Description: $END$<br>
-* createDate: $date$ $time$
-  $params$
-* @return $returns$
-* @author xiahaifeng
-  */
+ * MethodName: $method$ <br>
+ * Description: $END$<br>
+ * createDate: $date$ $time$
+ $params$
+ * @return $returns$
+ * @author xiahaifeng
+ */
 
 params:默认值
 
