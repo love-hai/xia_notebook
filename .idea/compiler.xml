@@ -8,8 +8,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="test" />
-        <module name="java_study" />
         <module name="xhf-core" />
+        <module name="mtst" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">

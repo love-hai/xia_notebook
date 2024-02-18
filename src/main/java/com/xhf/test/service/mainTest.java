@@ -1,19 +1,39 @@
 package com.xhf.test.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.CollectionUtils;
 
-import java.util.List;
+import java.util.concurrent.Callable;
 
 @Slf4j
 public class mainTest {
 
     public static void main(String[] args) {
-        List<String> a = null;
-        if(CollectionUtils.isNotEmpty(a)){
-            log.info("a is not empty");
-        }else {
-            log.info("a is empty");
+        int j=1;
+        try {
+            new TestCall(j).call();
+        } catch (Exception e) {
+            log.error("线程{}执行异常",j);
+        }
+    }
+
+
+    public static class TestCall implements Callable<String> {
+
+        private Integer i;
+        public TestCall(Integer i) {
+            this.i = i;
+        }
+        @Override
+        public String call() throws Exception {
+            log.info("线程{}开始执行",i);
+            while (true){
+                i++;
+                log.info("线程{}执行中",i);
+                if(i>=10){
+                    break;
+                }
+            }
+            return "线程"+i+"执行完成";
         }
     }
 }
