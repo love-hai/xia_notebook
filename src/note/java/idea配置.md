@@ -28,7 +28,7 @@ groovyScript("def result = ''\n def params = \"${_1}\".replaceAll('[\\\\[|\\\\]|
 #parse("File Header.java")
 /**
  * ${description}
- * CreateDate: ${DATE} ${TIME}
+ * @since ${DATE} ${TIME}
  * @author xiahaifeng
  */
 
