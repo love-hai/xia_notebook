@@ -1,14 +1,14 @@
 package com.xhf.test.service.tool;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * erp的bizData返回值
@@ -33,13 +33,12 @@ public class BizDataResponse<T> {
     /**
      * MethodName: ListResponse <br>
      * Description: 将result中的bizData转化为列表对象 <br>
-     *
      * @param result java.lang.String    :
      * @param clazz  java.lang.Class<?>  :
      * @author xiahaifeng
      * @since 2024/2/27 13:04
      */
-    public void ListResponse(String result, Class<?> clazz) throws Exception {
+    public <E> void ListResponse(String result, Class<E> clazz) throws Exception {
         if (StringUtils.isEmpty(result)) {
             return;
         }
@@ -59,7 +58,11 @@ public class BizDataResponse<T> {
             if (null == array || array.size() == 0) {
                 return;
             }
-            this.setBizData((T) gson.fromJson(array, clazz));
+            List<E> list = new ArrayList<>();
+            for (final JsonElement elem : array) {
+                list.add(gson.fromJson(elem, clazz));
+            }
+            this.setBizData((T) list);
         } catch (Exception e) {
             throw new Exception("BizData转化数组失败", e);
         }
