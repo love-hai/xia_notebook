@@ -4,16 +4,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service
- * @className: reflectionTest
- * @descriptions:
- * @author: xiahaifeng
- * @createDate: 2023/8/17 11:21
- * @updateUser: xiahaifeng
- * @updateDate: 2023/8/17 11:21
- * @updateRemark:
- * @version: v1.0
+ * 反射示例
+ * @author xiahaifeng
+ * @since 2023/8/17 11:21
  */
 
 public class ReflectionExample {

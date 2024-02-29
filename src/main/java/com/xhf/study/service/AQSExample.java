@@ -1,21 +1,11 @@
 package com.xhf.study.service;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service
- * @className: AQSExample
- * @descriptions: AQS示例
+ * AQS示例
  * @author: xiahaifeng
- * @createDate: 2023/8/22 8:43
- * @updateUser: xiahaifeng
- * @updateDate: 2023/8/22 8:43
- * @updateRemark:
- * @version: v1.0
+ * @since 2023/8/22 8:43
  */
 
 /**

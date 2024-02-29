@@ -1,15 +1,9 @@
 package com.xhf.study.service;
 
 /**
- * @projectName: lalang-browser<br>
- * @package: com.lalang.browser.service<br>
- * @className: ApplicationContextGetBeanHelper<br>
- * @descriptions: spring上下文bean获取
- * @author: xiahaifeng
- * @createDate: 2024/1/3 10:32
- * @updateUser: xiahaifeng
- * @updateDate: 2024/1/3 10:32
- * @updateRemark:
+ * spring上下文bean获取
+ * @author xiahaifeng
+ * @since 2024/1/3 10:32
  */
 
 import org.springframework.beans.BeansException;

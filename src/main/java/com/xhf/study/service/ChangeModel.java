@@ -7,15 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service
- * @className: ChangeModel
- * @descriptions: 了解引用的规则
- * @author: xiahaifeng
- * @createDate: 2023/9/18 17:14
- * @updateUser: xiahaifeng
- * @updateDate: 2023/9/18 17:14
- * @updateRemark:
+ * 了解引用的规则
+ * @author xiahaifeng
+ * @since 2023/9/18 17:14
  */
 
 /**
@@ -24,29 +18,12 @@ import java.util.List;
 public class ChangeModel {
 
     public static void main(String[] args) {
-//        A a = new A();
-//        a.setA("1");
-//        a.setB(true);
-//        Integer count=1;
-//        count++;
-//        count++;
-//        count++;
-//        count++;
-//        count++;
-//        change(a,count,true);
         List<Integer> list = new ArrayList<>();
         change(list);
         change(list);
     }
 
-    /**
-     * @Description: 
-     * @param a     com.xhf.study.model.A  :引用数据类型
-     * @param count java.lang.Integer     : 
-     * @return: void
-     * @Author: xiahaifeng
-     * @Date: 2023/9/18 17:25
-     */
+    // 引用数据类型
     private static void change(A a, Integer count,Boolean flag) {
         A a1 =new A();
         BeanUtils.copyProperties(a,a1);

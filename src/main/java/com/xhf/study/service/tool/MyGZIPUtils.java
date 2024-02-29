@@ -19,7 +19,7 @@ import java.util.zip.GZIPOutputStream;
  * @since 2024/2/27 16:22
  */
 @Slf4j
-public class GZIPUtils {
+public class MyGZIPUtils {
     public static final String GZIP_ENCODE_UTF_8 = "UTF-8";
     public static final String GZIP_ENCODE_ISO_8859_1 = "ISO-8859-1";
 

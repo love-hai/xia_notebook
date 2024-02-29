@@ -6,15 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service
- * @className: A1
- * @descriptions:
- * @author: xiahaifeng
- * @createDate: 2023/9/21 16:45
- * @updateUser: xiahaifeng
- * @updateDate: 2023/9/21 16:45
- * @updateRemark:
+ * @author xiahaifeng
+ * @since 2023/9/21 16:45
  */
 @Data
 public class A1{

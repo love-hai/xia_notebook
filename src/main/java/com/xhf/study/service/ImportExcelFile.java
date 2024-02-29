@@ -10,16 +10,9 @@ import java.util.List;
 
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service
- * @className: ImportExcelFile
- * @descriptions: 对excel文件
- * @author: xiahaifeng
- * @createDate: 2023/8/14 9:08
- * @updateUser: xiahaifeng
- * @updateDate: 2023/8/14 9:08
- * @updateRemark:
- * @version: v1.0
+ * 导入excel文件
+ * @author xiahaifeng
+ * @since 2023/8/14 9:08
  */
 @Slf4j
 public class ImportExcelFile {

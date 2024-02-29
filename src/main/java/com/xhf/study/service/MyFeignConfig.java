@@ -1,16 +1,8 @@
 package com.xhf.study.service;
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service
- * @className: MyFeignConfig
- * @descriptions:
- * @author: xiahaifeng
- * @createDate: 2023/9/5 16:09
- * @updateUser: xiahaifeng
- * @updateDate: 2023/9/5 16:09
- * @updateRemark:
- * @version: v1.0
+ * @author xiahaifeng
+ * @since 2023/9/5 16:09
  */
 
 import feign.Request;

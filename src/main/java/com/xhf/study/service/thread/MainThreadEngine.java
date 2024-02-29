@@ -1,54 +1,29 @@
 package com.xhf.study.service.thread;
 
+import javafx.application.Platform;
 import lombok.extern.slf4j.Slf4j;
 
-import java.lang.reflect.Type;
 import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 /**
- * @projectName: lalang-browser
- * @package: com.lalang.browser.service
- * @className: MainThreadEngine
- * @descriptions: 用来执行callable
- * @author: xiahaifeng
- * @createDate: 2023/9/8 14:53
- * @updateUser: xiahaifeng
- * @updateDate: 2023/9/8 14:53
- * @updateRemark:
- * @version: v1.0
+ * 主线程用来执行操作UI的callable
+ * @author xiahaifeng
+ * @since 2023/9/8 14:53
  */
 @Slf4j
 public class MainThreadEngine {
-    Callable callable;
-
-    public MainThreadEngine(Callable<Objects> callable){
-        this.callable=callable;
+    public MainThreadEngine() {
     }
-
-    /**
-     * @Description:获取callable的返回值类型
-     * @Param: []:[]
-     * @return: java.lang.Object
-     * @Author: xiahaifeng
-     * @Date: 2023/9/8 14:58
-     */
-    public Type getCallableResult() {
+    public static  <T> T call(Callable<T> callable) {
         try {
-            Type returnType = callable.getClass().getMethod("call").getGenericReturnType();
-            return returnType;
-        } catch (Exception e) {
-            log.info("获取callable的返回值失败"+e.getMessage(),e);
-            return null;
-        }
-    }
-
-    public <T> T call() {
-        FutureTask<T> futureTask = new FutureTask<>(callable);
-        Thread thread = new Thread(futureTask);
-        thread.start();
-        try {
+            if(Objects.isNull(callable)){
+                throw new NullPointerException("callable不能为空");
+            }
+            String name = callable.getClass().getName();
+            FutureTask<T> futureTask = new FutureTask<>(callable);
+            Platform.runLater(futureTask);
             return futureTask.get();
         } catch (Exception e) {
             log.error("执行callable失败：" + e.getMessage(), e);

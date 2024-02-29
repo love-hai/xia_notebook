@@ -5,19 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.File;
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service
- * @className: createDir
- * @descriptions: 创建目录
- * @author: xiahaifeng
- * @createDate: 2023/9/8 13:54
- * @updateUser: xiahaifeng
- * @updateDate: 2023/9/8 13:54
- * @updateRemark:
- * @version: v1.0
+ * 创建目录
+ * @author xiahaifeng
+ * @since 2023/9/8 13:54
  */
 @Slf4j
-public class createDir {
+public class CreateDir {
 
     public static void main(String[] args) {
         String directoryPath = "C:/temu/download";

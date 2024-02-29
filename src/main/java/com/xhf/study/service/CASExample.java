@@ -3,16 +3,9 @@ package com.xhf.study.service;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service
- * @className: CASTest
- * @descriptions: 测试CAS锁
- * @author: xiahaifeng
- * @createDate: 2023/8/21 9:01
- * @updateUser: xiahaifeng
- * @updateDate: 2023/8/21 9:01
- * @updateRemark:
- * @version: v1.0
+ * 测试CAS锁
+ * @author xiahaifeng
+ * @since 2023/8/21 9:01
  */
 
 public class CASExample {

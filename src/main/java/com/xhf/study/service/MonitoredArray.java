@@ -4,16 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service
- * @className: MonitoredArray
- * @descriptions:
- * @author: xiahaifeng
- * @createDate: 2023/8/12 10:32
- * @updateUser: xiahaifeng
- * @updateDate: 2023/8/12 10:32
- * @updateRemark:
- * @version: v1.0
+ * 监听数组变化
+ * @author xiahaifeng
+ * @since 2023/8/12 10:32
  */
 
 public class MonitoredArray {
