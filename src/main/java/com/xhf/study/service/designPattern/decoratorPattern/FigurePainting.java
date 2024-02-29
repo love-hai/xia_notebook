@@ -1,0 +1,20 @@
+package com.xhf.study.service.designPattern.decoratorPattern;
+
+/**
+ * @projectName: test
+ * @package: com.xhf.study.service.designPattern.decoratorPattern
+ * @className: FigurePainting
+ * @descriptions: 人物画
+ * @author: xiahaifeng
+ * @createDate: 2023/9/20 11:08
+ * @updateUser: xiahaifeng
+ * @updateDate: 2023/9/20 11:08
+ * @updateRemark:
+ */
+
+public class FigurePainting implements Painting {
+    @Override
+    public void make() {
+        System.out.println("在画上画一些人物");
+    }
+}

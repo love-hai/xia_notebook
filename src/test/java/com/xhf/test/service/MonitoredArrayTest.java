@@ -1,8 +1,8 @@
-package com.xhf.test.service;
+package com.xhf.study.service;
 
 /**
  * @projectName: test
- * @package: com.xhf.test.service
+ * @package: com.xhf.study.service
  * @className: MonitoredArrayTest
  * @descriptions:
  * @author: xiahaifeng

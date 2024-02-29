@@ -57,7 +57,7 @@ POJO是DO/DTO/BO/VO的统称，禁止命名成xxxPOJO。
 
 ## java注释
 @see 用于指定参考的类或者方法
-@link 用于指定参考的类或者方法  例：{@link com.xhf.test.service.ChangeModel}
+@link 用于指定参考的类或者方法  例：{@link com.xhf.study.service.ChangeModel}
 @throws 用于指定方法可能抛出的异常
 
 # java对象与引用
