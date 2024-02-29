@@ -1,17 +1,4 @@
 package com.xhf.study.service.designPattern.templatePattern;
-
-/**
- * @projectName: test
- * @package: com.xhf.study.service.designPattern.templatePattern
- * @className: MakeFigurePainting
- * @descriptions:
- * @author: xiahaifeng
- * @createDate: 2023/9/25 10:09
- * @updateUser: xiahaifeng
- * @updateDate: 2023/9/25 10:09
- * @updateRemark:
- */
-
 public class MakeFigurePainting extends MakePaintingTemplate {
 
     @Override

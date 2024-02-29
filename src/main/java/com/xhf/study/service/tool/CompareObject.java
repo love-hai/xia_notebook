@@ -6,27 +6,21 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service.tool
- * @className: CompareObject
- * @descriptions: 比较两个对象的大小
- * @author: xiahaifeng
- * @createDate: 2023/10/25 10:35
- * @updateUser: xiahaifeng
- * @updateDate: 2023/10/25 10:35
- * @updateRemark:
+ * 比较两个对象的大小
+ * @author xiahaifeng
+ * @since 2023/10/25 10:35
  */
 
 public class CompareObject {
 
     /**
-     * @Method: compareVersion
-     * @Description: 比较两个版本号例如'0.0.0.4'的大小，前面大则返回正数，后面大则返回负数，相等则返回0
+     * MethodName: compareVersion <br>
+     * Description: 比较两个版本号例如'0.0.0.4'的大小，前面大则返回正数，后面大则返回负数，相等则返回0<br>
      * @param version1 java.lang.String  :
      * @param version2 java.lang.String  :
-     * @return: int
-     * @Author: xiahaifeng
-     * @Date: 2023/10/25 10:37
+     * @return int
+     * @author xiahaifeng
+     * @since 2024/2/29 13:44
      */
     public int compareVersion(String version1, String version2) {
         String[] v1 = version1.split("\\.");
@@ -44,12 +38,12 @@ public class CompareObject {
     }
 
     /**
-     * MethodName: isVersionNoRight
-     * @Description: 判断版本号是否符合规范，例如只有数字和小数点，两边没有小数点
+     * MethodName: isVersionNoRight <br>
+     * Description: 判断版本号是否符合规范，例如只有数字和小数点，两边没有小数点<br>
      * @param versionNo java.lang.String  :
-     * @return: java.lang.Boolean
+     * @return java.lang.Boolean
      * @author xiahaifeng
-     * @Date: 2023/11/4 8:38
+     * @since 2024/2/29 13:44
      */
     public Boolean isVersionNoRight(String versionNo) {
         String regex = "^[0-9]+(.[0-9]+)*$";

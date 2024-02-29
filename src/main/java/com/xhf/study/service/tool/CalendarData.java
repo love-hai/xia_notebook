@@ -9,30 +9,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * @projectName: test
- * @package: com.xhf.study.service
- * @className: CalendarData
- * @descriptions: 一些计算时间的函数
- * @author: xiahaifeng
- * @createDate: 2023/8/23 14:15
- * @updateUser: xiahaifeng
- * @updateDate: 2023/8/23 14:15
- * @updateRemark:
- * @version: v1.0
- */
 @Slf4j
 @Service
 public class CalendarData {
 
-    /**
-     * @Method: getNowTime
-     * @Description: 将时间转换为想要的字符串
-     * @param    :
-     * @return: java.lang.String
-     * @Author: xiahaifeng
-     * @Date: 2023/10/25 10:45
-     */
     public String getStringOfTime(Date ...date) {
         Date time;
         if(date.length == 0) {

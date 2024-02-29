@@ -1,17 +1,5 @@
 package com.xhf.study.service.designPattern.decoratorPattern;
 
-/**
- * @projectName: test
- * @package: com.xhf.study.service.designPattern.decoratorPattern
- * @className: PictureFramePaintingShape
- * @descriptions: 画框形状
- * @author: xiahaifeng
- * @createDate: 2023/9/20 11:22
- * @updateUser: xiahaifeng
- * @updateDate: 2023/9/20 11:22
- * @updateRemark:
- */
-
 public class PictureFramePaintingShape extends PictureFramePainting {
 
     private String shape;

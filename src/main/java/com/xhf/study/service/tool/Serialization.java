@@ -5,15 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.SerializationUtils;
 
 /**
- * @projectName: test
- * @package: com.xhf.study.service.tool
- * @className: Serialization
- * @descriptions: 序列化和反序列化
- * @author: xiahaifeng
- * @createDate: 2023/11/22 13:36
- * @updateUser: xiahaifeng
- * @updateDate: 2023/11/22 13:36
- * @updateRemark:
+ * 序列化和反序列化
+ * @author xiahaifeng
+ * @since 2023/11/22 13:36
  */
 @Slf4j
 public class Serialization {

@@ -9,18 +9,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-/**
- * @projectName: test
- * @package: com.xhf.study.service.tool
- * @className: MyFileUtils
- * @descriptions:
- * @author: xiahaifeng
- * @createDate: 2023/12/7 16:15
- * @updateUser: xiahaifeng
- * @updateDate: 2023/12/7 16:15
- * @updateRemark:
- */
 @Slf4j
 public class MyFileUtils {
 
@@ -31,16 +19,14 @@ public class MyFileUtils {
     }
 
     /**
-     * MethodName: coverOldFile
-     * Description: 覆盖旧文件
-     *
+     * MethodName: coverOldFile <br>
+     * Description: 覆盖旧文件<br>
      * @param urlString      java.lang.String      :
      * @param exportFilePath java.lang.String      :
      * @param fileName       java.lang.String      :
      * @param isAppend       java.lang.Boolean...  :
-     * @return void
      * @author xiahaifeng
-     * @createDate: 2023/12/8 11:37
+     * @since 2024/2/29 13:45
      */
     public void coverOldFile(String urlString, String exportFilePath, String fileName, Boolean... isAppend) {
         File file = new File(exportFilePath + File.separator + fileName);
@@ -56,16 +42,14 @@ public class MyFileUtils {
     }
 
     /**
-     * MethodName: downloadFile
-     * Description: 下载文件
-     *
-     * @param urlString      java.lang.String  :
-     * @param exportFilePath java.lang.String  :
-     * @param fileName       java.lang.String  :
-     * @param isAppend       java.lang.Boolean : 是否追加,默认false，不追加，如果文件已存在，会加上index
-     * @return void
+     * MethodName: downloadFile <br>
+     * Description: 下载文件<br>
+     * @param urlString      java.lang.String      :
+     * @param exportFilePath java.lang.String      :
+     * @param fileName       java.lang.String      :
+     * @param isAppend       java.lang.Boolean...  :
      * @author xiahaifeng
-     * @createDate: 2023/12/8 11:28
+     * @since 2024/2/29 13:45
      */
     public void downloadFile(String urlString, String exportFilePath, String fileName, Boolean... isAppend) {
         try {
@@ -104,19 +88,18 @@ public class MyFileUtils {
     }
 
     /**
-     * MethodName: getFileName
-     * Description: 获取正确的文件名
-     *
+     * MethodName: getFileName <br>
+     * Description: 获取正确的文件名<br>
      * @param path java.lang.String  :
      * @return java.lang.String
      * @author xiahaifeng
-     * @createDate: 2023/12/8 8:47
+     * @since 2024/2/29 13:45
      */
     private String getFileName(String path) {
         if (StringUtils.isEmpty(path)) {
             throw new RuntimeException("文件路径不能为空");
         }
-        Integer index = 0;
+        int index = 0;
         //先将后缀和前面的部分分离出来
         String suffix = path.substring(path.lastIndexOf("."));
         String prefix = path.substring(0, path.lastIndexOf("."));
