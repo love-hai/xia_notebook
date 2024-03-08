@@ -11,7 +11,6 @@ import org.apache.commons.lang3.SerializationUtils;
  */
 @Slf4j
 public class Serialization {
-
     public static void main(String[] args) {
         log.info("序列化和反序列化");
         Student student = new Student("xia",18 );
@@ -21,5 +20,4 @@ public class Serialization {
         Student student1 = SerializationUtils.deserialize(bytes);
         log.info("反序列化后："+student1.toString());
     }
-
 }
