@@ -1,4 +1,6 @@
 # 项目排除路径
 /target/
-/.idea/runConfigurations.xml
+/.idea/
 /out/
+
+/mtst/target/
