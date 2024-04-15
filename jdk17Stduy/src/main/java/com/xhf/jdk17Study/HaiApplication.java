@@ -3,13 +3,10 @@ package com.xhf.jdk17Study;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+
 @SpringBootApplication
-@EnableFeignClients
 @ComponentScan(basePackages = {"com.xhf"})
 public class HaiApplication extends SpringApplication {
     public static void main(String[] args) {
@@ -17,4 +14,5 @@ public class HaiApplication extends SpringApplication {
                 .build()
                 .run(args);
     }
+
 }

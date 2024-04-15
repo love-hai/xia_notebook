@@ -27,4 +27,10 @@ public class QueryIpController {
        MyIp myIp = ipQueryService.getMyNetIp();
        log.info("myIp:{}",myIp);
     }
+
+    public static void main(String[] args){
+        IpQueryService ipQueryService=new IpQueryService();
+        MyIp myIp = ipQueryService.getMyNetIp();
+        log.info("myIp:{}",myIp);
+    }
 }

@@ -7,8 +7,6 @@
     <groupId>com.xhf</groupId>
     <artifactId>myTool</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -35,6 +33,12 @@
             <artifactId>com-google-gson</artifactId>
             <version>RELEASE113</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>com-google-gson</artifactId>
+            <version>RELEASE113</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

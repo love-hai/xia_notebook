@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class IpQueryService {
     @Autowired
-    private OtherApiService otherApiService;
+    private OtherApiService otherApiService= new OtherApiService();
 
     public MyIp getMyNetIp() {
         try {
-            MyIp myIp = otherApiService.queryMyNetIp().getBizData();
+            MyIp myIp = otherApiService.queryMyNetIp();
             if (null == myIp) {
                 log.error("获取ip失败");
                 return null;

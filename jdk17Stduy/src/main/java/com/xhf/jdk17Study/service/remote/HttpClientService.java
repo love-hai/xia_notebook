@@ -1,6 +1,6 @@
 package com.xhf.jdk17Study.service.remote;
 
-import com.xhf.study.service.tool.MyGsonUtils;
+import com.xhf.tool.MyGsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
