@@ -14,5 +14,4 @@ public class AppStart {
         SpringApplication.run(HaiApplication.class, args);
         log.info("Application started successfully!");
     }
-
 }

@@ -9,17 +9,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jdk17Stduy" />
+        <module name="myTool" />
         <module name="xhf-core" />
-        <module name="mtst" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="17" />
   </component>
   <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_STRING" value="-jps.track.ap.dependencies=true" />
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="jdk17Stduy" options="" />
-      <module name="mtst" options="" />
+      <module name="myTool" options="" />
       <module name="study" options="" />
     </option>
   </component>
