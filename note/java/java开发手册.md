@@ -225,3 +225,58 @@ SQLSERVER: 默认为READ_COMMITTED
 ## java的序列化和反序列化问题
 1. 序列化：将对象转换成有序字节序列的过程称为对象的序列化，方便这些对象在网络中传输，可以保存和重建
 2. 反序列化：将字节序列恢复为对象的过程称为对象的反序列化。
+
+
+# java stream 流
+
+## stream 是什么
+1. Java中的Stream并不会存储元素，而是按需计算。
+2. 流的来源，可以是集合，数组，i/o channel ,产生器generator 
+3. Pipelining: 中间操作都会返回流对象本身。 这样多个操作可以串联成一个管道， 如同流式风格（fluent style）。 这样做可以对操作进行优化， 比如延迟执行(laziness)和短路( short-circuiting)。
+4. 内部迭代： 以前对集合遍历都是通过Iterator或者增强for循环，显示在外部进行迭代， Stream提供了内部迭代的方式，通过访问者模式(Visitor)实现。
+## 串行流和并行流 
+### 串行流 stream
+#### 生成
+1. 通过Collection 系列集合提供的stream()
+2. Stream 接口的静态方法 of 可以获取数组对应的流
+
+### 并行流 parallelStream()
+#### 生成
+1. 通过Collection 系列集合提供的parallelStream()
+2. 将串行流转换为并行流，通过Collection 系列集合提供的stream().parallel()
+#### 线程安全
+1. 串行流是单线程处理，而并行流是多线程处理，串行流是线程安全的，但是并行流是非线程安全的
+2. 解决方案
+   使用同步代码块 synchronized 
+   使用并发包中的线程安全的集合
+   调用Stream流的 collect/toArray 方法，这些方法会在内部进行合适的线程安全处理，因此可以避免并行流导致的线程安全问题。
+
+## Stream的常用操作
+### 无状态操作 
+指当前元素的操作不受前面元素的影响，如果这些操作连在一起，只进行一次迭代。
++ filter()
++ flatMap()
++ flatMapToInt()
++ flatMapToLong()
++ flatMapToDouble()
++ map()
++ mapToInt()
++ mapToDouble()
++ mapToLong()
++ peek() : 用于debug,不会改变流中的元素的值
++ unordered() ：unordered并不会打乱顺序，只是解除限制，不再保证顺序
+
+### 有状态操作
+等所有元素处理完之后才能执行当前操作
++ distinct()
++ sorted() : 
++ limit() ：丢弃流的前n 个元素
++ skip() ：返回不长于请求的大小的流
+
+
+ 
+
+
+
+
+
