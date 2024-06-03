@@ -6,22 +6,26 @@
 `git config --global user.name "love-hai"`（双引号不用删，里面内容替换掉）
 `git config --global user.email "xiahaifeng2000@gmail.com"`
 
-
 #### 生成公共密钥
 
 这个密钥是放在仓库里来生产私钥的
 
 `ssh-keygen -t rsa -C `"xiahaifeng2000@gmail.com"
 
+new ：
+
+```shell
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+
 C:\Users\\admin\\.ssh里面，admin指的是用户名。
 找到id_rsa.pub文件，复制粘贴全部内容（一行很长的字符串）
-
 
 #### Github上验证
 
 登录github ->进入设置->SSH and GPG key ->新建密钥
 把上面文件里的内容全部复制粘贴进去即可。
-
 
 #### 验证是否成功
 
