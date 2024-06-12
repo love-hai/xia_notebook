@@ -15,17 +15,17 @@
 params:默认值
 
 ```
-groovyScript("def result = '' 
-def params = \"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList()
-def paramsType = \"${_2}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList()
-def maxParamLength = params.collect { it.length() }.max()
+groovyScript("def result = '';
+def params = \"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList();
+def paramsType = \"${_2}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList();
+def maxParamLength = params.collect { it.length() }.max();
 for (i = 0; i < params.size(); i++) {
-     def param = params[i]
-     def type = paramsType[i].replace('?', '')
-     def paramPadding = ' ' * (maxParamLength - param.length())
-     result += '* @param ' + param + paramPadding + ' {@link ' + type + '} '+((i < params.size() - 1) ? '\\n ' : '') 
-     }
-return result", methodParameters(), methodParameterTypes())
+     def param = params[i];
+     def type = paramsType[i].replace('?', '');
+     def paramPadding = ' ' * (maxParamLength - param.length());
+     result += '* @param ' + param + paramPadding + ' {@link ' + type + '} '+((i < params.size() - 1) ? '\\n ' : '');
+}
+return result;", methodParameters(), methodParameterTypes())
 ```
 
 returns:默认值
