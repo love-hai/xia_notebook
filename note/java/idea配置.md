@@ -15,7 +15,7 @@
 params:默认值
 
 ```
-groovyScript("def result = ''\n def params = \"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList()\n def paramsType = \"${_2}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList()\n def maxParamLength = params.collect { it.length() }.max()\n for (i = 0; i < params.size(); i++) {\n     def param = params[i]\n     def type = paramsType[i].replace('?', '')\n     def paramPadding = ' ' * (maxParamLength - param.length())\n result += '* @param ' + param + paramPadding + ' {@link ' + type + '} \\n' }\n return result", methodParameters(), methodParameterTypes())
+groovyScript("def result = ''\n def params = \"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList()\n def paramsType = \"${_2}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList()\n def maxParamLength = params.collect { it.length() }.max()\n for (i = 0; i < params.size(); i++) {\n     def param = params[i]\n     def type = paramsType[i].replace('?', '')\n     def paramPadding = ' ' * (maxParamLength - param.length())\n result += '* @param ' + param + paramPadding + ' {@link ' + type + '} '+((i < params.size() - 1) ? '\\n ' : '' }\n return result", methodParameters(), methodParameterTypes())
 ```
 
 returns:默认值
@@ -45,7 +45,7 @@ else{
 params:默认值
 
 ```
-groovyScript("def result = ''\n def params = \"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList()\n  def maxParamLength = params.collect { it.length() }.max()\n for (i = 0; i < params.size(); i++) {\n     def param = params[i]\n def paramPadding = ' ' * (maxParamLength - param.length())\n result += '* @param ' + param }\n return result", methodParameters())
+groovyScript("def result = ''\n def params = \"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList()\n  def maxParamLength = params.collect { it.length() }.max()\n for (i = 0; i < params.size(); i++) {\n     def param = params[i]\n def paramPadding = ' ' * (maxParamLength - param.length())\n result += '* @param ' + param +((i < params.size() - 1) ? '\\n ' : '' }\n return result", methodParameters())
 ```
 
 
